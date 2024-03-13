@@ -12,7 +12,8 @@ def is_direct_url():
 def check_direct_url():
     if is_direct_url() and request.path != '/':
         return render_template('error.html')
-
+        
+@app.route('/index.html')
 @app.route('/')
 def index():
     return render_template('index.html')

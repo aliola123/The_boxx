@@ -623,6 +623,12 @@ footer .copyright {
 }
 
 
+#about-head p {
+    font-size: 25px;
+    line-height: 50px;
+    text-align: justify;
+}
+
 
 /*CART PAGE STYLES ARE ADDED HERE*/
 #cart{
