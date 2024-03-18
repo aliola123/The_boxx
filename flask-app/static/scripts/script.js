@@ -13,7 +13,7 @@ if (close) {
         nav.classList.remove('active')
     })
 }
-
+/*
 //Image slider script for shop page
 var MainImg = document.getElementById('Mainimage')
 var smallimg = document.getElementsByClassName('small-img')
@@ -32,4 +32,31 @@ smallimg[2].onclick = function(){
 
 smallimg[3].onclick = function(){
     MainImg.src = smallimg[3].src;
+}
+*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.add-to-cart-btn').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const productId = button.getAttribute('data-product-id');
+            addToCart(productId);
+        });
+    });
+});
+
+function addToCart(productId) {
+    // Call your function to add the item to the cart
+    // For demonstration purposes, I'll just call showCustomAlert here
+    showCustomAlert('Item added to cart successfully');
+}
+
+function showCustomAlert(message) {
+    const customAlert = document.getElementById('custom-alert');
+    const customAlertMessage = document.getElementById('custom-alert-message');
+    customAlertMessage.innerText = message;
+    customAlert.style.display = 'block';
+
+    setTimeout(function() {
+        customAlert.style.display = 'none';
+    }, 800); // 3 seconds
 }
