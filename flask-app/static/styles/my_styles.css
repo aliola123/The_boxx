@@ -744,6 +744,7 @@ footer .copyright {
     font-size: 30px;
 }
 
+/*User Details input form during checkout*/
 form {
     max-width: 400px;
     margin: 20px auto;
@@ -783,6 +784,36 @@ button:hover {
 
 .hidden {
     display: none;
+}
+
+/*Checkout successful Message*/
+.hidden2 {
+    display: none;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    margin-top: 20px;
+    text-align: center;
+    width: 30%;
+    margin: 10vh 0 0 35vw;
+}
+
+.hidden2 h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.hidden2 h3 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.hidden2 p {
+    font-size: 16px;
+    color: #666;
+    font-weight: 600;
 }
 
 /*CONTACT PAGE STYLES ARE ADDED HERE*/
