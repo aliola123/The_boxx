@@ -92,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateCartUI(updatedLocalStorage);
         this.location.reload();
+      });
     });
 
     const removeItemFromCart = document.querySelectorAll(".remove-item");
@@ -127,6 +128,5 @@ document.addEventListener("DOMContentLoaded", function () {
     removeItemFromCart.forEach((btn) => {
       btn.addEventListener("click", removeItemFromCartBtnPressed);
     });
-
   }
 });
