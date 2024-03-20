@@ -872,6 +872,18 @@ footer .copyright {
     z-index: 1000;
 }
 
+.empty-cart {
+    margin:15vh 0 0 40vw;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    border: 1px solid black; 
+    outline: none;
+    border-radius: 5px;
+    width: 20%;  
+}
+
 
 /*MEDIA QUERIES FOR RESPONSIVITY IS ADDED HERE*/
 @media (max-width: 799px) {
@@ -924,6 +936,11 @@ footer .copyright {
 
     #lg-bag {
         display: none;
+    }
+    
+    .empty-cart {
+        margin: 15vh 0 0 35vw;
+        width: 30%;
     }
 
     #content {
@@ -986,6 +1003,12 @@ footer .copyright {
 
     #header {
         padding: 10px 30px;
+    }
+
+    .empty-cart {
+        margin: 10vh 0 0 25vw;
+        width: 50%;
+        font-size: 20px;
     }
 
     #content {
