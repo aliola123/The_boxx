@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         updateCartUI(updatedLocalStorage);
-        this.location.reload();
+        location.reload();
       });
     });
 
