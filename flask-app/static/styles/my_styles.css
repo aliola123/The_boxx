@@ -771,7 +771,7 @@ input[type="text"] {
 #btn {
     width: 100%;
     padding: 8px;
-    border: 1px solid black;
+    border: 1px solid #088178;
     border-radius: 4px;
     color: black;
     cursor: pointer;
@@ -783,12 +783,12 @@ button:hover {
 }
 
 .hidden {
-    display: none;
+    /*display: none;*/
 }
 
 /*Checkout successful Message*/
 .hidden2 {
-    display: none;
+    /*display: none;*/
     padding: 20px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
@@ -1058,6 +1058,13 @@ button:hover {
     #subtotal table td {
         font-size: 15px;
     }
+
+    .hidden2 {
+        /* display: none; */
+        border-radius: 100px;
+        width: 50%;
+        margin: 10vh 0 0 25vw;
+    }
 }
 
 @media (max-width: 477px) {
@@ -1191,5 +1198,12 @@ button:hover {
 
     #coupon {
         width: 100%;
+    }
+
+    .hidden2 {
+        /* display: none; */
+        border-radius: 100px;
+        width: 70%;
+        margin: 5vh 0 0 14vw;
     }
 }
