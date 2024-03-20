@@ -973,6 +973,13 @@ footer .copyright {
 }
 
 @media (max-width: 477px) {
+
+    #page-header {
+        height: 20vh;
+    }
+    #subtotal {
+        width: 100%;
+    }
     .section-p {
         padding: 20px 20px;
     }

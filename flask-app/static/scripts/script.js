@@ -60,3 +60,109 @@ function showCustomAlert(message) {
         customAlert.style.display = 'none';
     }, 800); // 3 seconds
 }
+
+// For cart interaction
+const addToCartBtn = document.querySelectorAll(".add-to-cart-btn");
+
+const addToCartBtnPressed = function (e) {
+  e.preventDefault();
+
+  let existing = localStorage.getItem("userCart");
+
+  existing = existing ? JSON.parse(existing) : [];
+  const currentShopping = {};
+  const clickedBtn = e.target.closest(".product");
+  currentShopping.image = clickedBtn.querySelector("img").getAttribute("src");
+  currentShopping.productName = clickedBtn.querySelector("h5").textContent;
+  currentShopping.price = clickedBtn.querySelector("h4").textContent;
+  currentShopping.quantity = "1";
+  currentShopping.priceSubtotal = clickedBtn
+    .querySelector("h4")
+    .textContent.split("N")[1];
+  currentShopping.loggedIn = false;
+  existing.push(currentShopping);
+  localStorage.setItem("userCart", JSON.stringify(existing));
+};
+
+addToCartBtn.forEach((btn) => {
+  btn.addEventListener("click", addToCartBtnPressed);
+});
+
+
+
+const cartSection = document.querySelector(".cart-content");
+cartSection.innerHTML = "";
+
+const parsedItem = JSON.parse(localStorage.getItem("userCart"));
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (!localStorage.getItem("userCart")) {
+    document.querySelector(".cart-table").innerHTML = "";
+
+    const createEl = document.createElement("h3");
+    createEl.classList.add("empty-cart");
+    createEl.textContent = "Your Cart Is Empty";
+
+    document
+      .querySelector(".section-p")
+      .insertAdjacentElement("beforebegin", createEl);
+  } else {
+    const updateCartUI = function (obj, val) {
+      cartSection.innerHTML = "";
+      obj.forEach((item) => {
+        cartSection.innerHTML = "";
+        // console.log(item);
+        const html = `
+              <tr class="cart-item">
+              <td><a href="#" class="remove-item"><i class="far fa-times-circle"></i></a></td>
+              <td><img src=${item.image} alt=""></td>
+              <td class="product-name">${item.productName}</td>
+              <td>${item.price}</td>
+              <td><input type="number" class="price-change" value=${val}></td>
+              <td>${item.priceSubtotal}</td>
+              </tr>
+              `;
+
+        cartSection.insertAdjacentHTML("beforebegin", html);
+      });
+    };
+
+    updateCartUI(parsedItem, 1);
+
+    const removeItemFromCart = document.querySelectorAll(".remove-item");
+
+    const removeItemFromCartBtnPressed = function (e) {
+      e.preventDefault();
+
+      const clicked = e.target;
+
+      const itemToRemove = clicked
+        .closest(".cart-item")
+        .querySelector(".product-name").textContent;
+
+      const findItemInLocalStorage = parsedItem.find(
+        (item) => item.productName === itemToRemove
+      );
+
+      if (!findItemInLocalStorage) return;
+
+      parsedItem.splice(parsedItem.indexOf(findItemInLocalStorage), 1);
+
+      localStorage.setItem("userCart", JSON.stringify(parsedItem));
+      updateCartUI(parsedItem, 1);
+
+      if (parsedItem.length < "1") {
+        localStorage.clear();
+        location.reload();
+      }
+
+      location.reload();
+    };
+
+    removeItemFromCart.forEach((btn) => {
+      btn.addEventListener("click", removeItemFromCartBtnPressed);
+    });
+
+    // localStorage.clear();
+  }
+});
