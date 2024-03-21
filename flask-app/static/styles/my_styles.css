@@ -1015,7 +1015,7 @@ button:hover {
     }
 
     #content {
-        height: 50vh;
+    
         padding: 0 80px;
         background-position: right;
     }
@@ -1091,6 +1091,7 @@ button:hover {
 
     #content {
         padding: 0 20px;
+        height: 90vh;
     }
 
     #content h4 {
